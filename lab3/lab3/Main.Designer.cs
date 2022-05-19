@@ -30,26 +30,28 @@
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menuStripNewPublication = new System.Windows.Forms.ToolStripMenuItem();
             this.newAuthorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newPublisherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.udcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.workplaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scienceDegreeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.genreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.UdcId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PublisherId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.authorsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addPublication = new System.Windows.Forms.Button();
             this.removePublication = new System.Windows.Forms.Button();
             this.prevBtn = new System.Windows.Forms.Button();
             this.nextBtn = new System.Windows.Forms.Button();
             this.lblPageNumber = new System.Windows.Forms.Label();
-            this.authorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.change = new System.Windows.Forms.Button();
+            this.authorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.udcDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countPagesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.publisherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.citationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.doiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.publicationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -61,9 +63,12 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuStripNewPublication,
             this.newAuthorToolStripMenuItem,
-            this.newPublisherToolStripMenuItem});
+            this.newPublisherToolStripMenuItem,
+            this.udcToolStripMenuItem,
+            this.workplaceToolStripMenuItem,
+            this.scienceDegreeToolStripMenuItem,
+            this.genreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
@@ -71,26 +76,47 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // menuStripNewPublication
-            // 
-            this.menuStripNewPublication.Name = "menuStripNewPublication";
-            this.menuStripNewPublication.Size = new System.Drawing.Size(122, 22);
-            this.menuStripNewPublication.Text = "Новая публикация";
-            this.menuStripNewPublication.Click += new System.EventHandler(this.menuStripNewPublicationToolStripMenuItem_Click);
-            // 
             // newAuthorToolStripMenuItem
             // 
             this.newAuthorToolStripMenuItem.Name = "newAuthorToolStripMenuItem";
-            this.newAuthorToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
-            this.newAuthorToolStripMenuItem.Text = "Новый автор";
+            this.newAuthorToolStripMenuItem.Size = new System.Drawing.Size(61, 22);
+            this.newAuthorToolStripMenuItem.Text = "Авторы";
             this.newAuthorToolStripMenuItem.Click += new System.EventHandler(this.newAuthorToolStripMenuItem_Click);
             // 
             // newPublisherToolStripMenuItem
             // 
             this.newPublisherToolStripMenuItem.Name = "newPublisherToolStripMenuItem";
-            this.newPublisherToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.newPublisherToolStripMenuItem.Text = "Новое издательство";
+            this.newPublisherToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.newPublisherToolStripMenuItem.Text = "Издательства";
             this.newPublisherToolStripMenuItem.Click += new System.EventHandler(this.newPublisherToolStripMenuItem_Click);
+            // 
+            // udcToolStripMenuItem
+            // 
+            this.udcToolStripMenuItem.Name = "udcToolStripMenuItem";
+            this.udcToolStripMenuItem.Size = new System.Drawing.Size(41, 22);
+            this.udcToolStripMenuItem.Text = "УДК";
+            this.udcToolStripMenuItem.Click += new System.EventHandler(this.udcToolStripMenuItem_Click);
+            // 
+            // workplaceToolStripMenuItem
+            // 
+            this.workplaceToolStripMenuItem.Name = "workplaceToolStripMenuItem";
+            this.workplaceToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.workplaceToolStripMenuItem.Text = "Места работы";
+            this.workplaceToolStripMenuItem.Click += new System.EventHandler(this.workplaceToolStripMenuItem_Click);
+            // 
+            // scienceDegreeToolStripMenuItem
+            // 
+            this.scienceDegreeToolStripMenuItem.Name = "scienceDegreeToolStripMenuItem";
+            this.scienceDegreeToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.scienceDegreeToolStripMenuItem.Text = "Ученые степени";
+            this.scienceDegreeToolStripMenuItem.Click += new System.EventHandler(this.scienceDegreeToolStripMenuItem_Click);
+            // 
+            // genreToolStripMenuItem
+            // 
+            this.genreToolStripMenuItem.Name = "genreToolStripMenuItem";
+            this.genreToolStripMenuItem.Size = new System.Drawing.Size(59, 22);
+            this.genreToolStripMenuItem.Text = "Жанры";
+            this.genreToolStripMenuItem.Click += new System.EventHandler(this.genreToolStripMenuItem_Click);
             // 
             // dataGridView1
             // 
@@ -101,12 +127,11 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.titleDataGridViewTextBoxColumn,
-            this.doiDataGridViewTextBoxColumn,
-            this.udcDataGridViewTextBoxColumn,
             this.countPagesDataGridViewTextBoxColumn,
+            this.UdcId,
+            this.PublisherId,
             this.creationDateDataGridViewTextBoxColumn,
-            this.publisherDataGridViewTextBoxColumn,
-            this.citationDataGridViewTextBoxColumn,
+            this.doiDataGridViewTextBoxColumn,
             this.authorsDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.publicationBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -118,9 +143,23 @@
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
+            // UdcId
+            // 
+            this.UdcId.DataPropertyName = "UdcId";
+            this.UdcId.HeaderText = "УДК";
+            this.UdcId.Name = "UdcId";
+            this.UdcId.ReadOnly = true;
+            // 
+            // PublisherId
+            // 
+            this.PublisherId.DataPropertyName = "PublisherId";
+            this.PublisherId.HeaderText = "Издательство";
+            this.PublisherId.Name = "PublisherId";
+            this.PublisherId.ReadOnly = true;
+            // 
             // authorsDataGridViewTextBoxColumn
             // 
-            this.authorsDataGridViewTextBoxColumn.DataPropertyName = "Authors";
+            this.authorsDataGridViewTextBoxColumn.DataPropertyName = "AuthorsIds";
             this.authorsDataGridViewTextBoxColumn.HeaderText = "Авторы";
             this.authorsDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.authorsDataGridViewTextBoxColumn.Name = "authorsDataGridViewTextBoxColumn";
@@ -178,11 +217,6 @@
             this.lblPageNumber.Text = "Страница 0/0";
             this.lblPageNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // authorsBindingSource
-            // 
-            this.authorsBindingSource.DataMember = "Authors";
-            this.authorsBindingSource.DataSource = this.publicationBindingSource;
-            // 
             // change
             // 
             this.change.Location = new System.Drawing.Point(253, 269);
@@ -192,6 +226,11 @@
             this.change.Text = "Просмотр/изменение публикации";
             this.change.UseVisualStyleBackColor = true;
             this.change.Click += new System.EventHandler(this.change_Click);
+            // 
+            // authorsBindingSource
+            // 
+            this.authorsBindingSource.DataMember = "AuthorsIds";
+            this.authorsBindingSource.DataSource = this.publicationBindingSource;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -207,20 +246,6 @@
             this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
             this.titleDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // doiDataGridViewTextBoxColumn
-            // 
-            this.doiDataGridViewTextBoxColumn.DataPropertyName = "Doi";
-            this.doiDataGridViewTextBoxColumn.HeaderText = "DOI";
-            this.doiDataGridViewTextBoxColumn.Name = "doiDataGridViewTextBoxColumn";
-            this.doiDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // udcDataGridViewTextBoxColumn
-            // 
-            this.udcDataGridViewTextBoxColumn.DataPropertyName = "Udc";
-            this.udcDataGridViewTextBoxColumn.HeaderText = "УДК";
-            this.udcDataGridViewTextBoxColumn.Name = "udcDataGridViewTextBoxColumn";
-            this.udcDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // countPagesDataGridViewTextBoxColumn
             // 
             this.countPagesDataGridViewTextBoxColumn.DataPropertyName = "CountPages";
@@ -235,23 +260,16 @@
             this.creationDateDataGridViewTextBoxColumn.Name = "creationDateDataGridViewTextBoxColumn";
             this.creationDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // publisherDataGridViewTextBoxColumn
+            // doiDataGridViewTextBoxColumn
             // 
-            this.publisherDataGridViewTextBoxColumn.DataPropertyName = "Publisher";
-            this.publisherDataGridViewTextBoxColumn.HeaderText = "Издательство";
-            this.publisherDataGridViewTextBoxColumn.Name = "publisherDataGridViewTextBoxColumn";
-            this.publisherDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // citationDataGridViewTextBoxColumn
-            // 
-            this.citationDataGridViewTextBoxColumn.DataPropertyName = "Citation";
-            this.citationDataGridViewTextBoxColumn.HeaderText = "Индекс цитируемости";
-            this.citationDataGridViewTextBoxColumn.Name = "citationDataGridViewTextBoxColumn";
-            this.citationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.doiDataGridViewTextBoxColumn.DataPropertyName = "Doi";
+            this.doiDataGridViewTextBoxColumn.HeaderText = "DOI";
+            this.doiDataGridViewTextBoxColumn.Name = "doiDataGridViewTextBoxColumn";
+            this.doiDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // publicationBindingSource
             // 
-            this.publicationBindingSource.DataSource = typeof(lab3.Publication);
+            this.publicationBindingSource.DataSource = typeof(lab3.Work);
             // 
             // Main
             // 
@@ -285,7 +303,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem menuStripNewPublication;
         private System.Windows.Forms.ToolStripMenuItem newAuthorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newPublisherToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -297,14 +314,17 @@
         private System.Windows.Forms.Button nextBtn;
         private System.Windows.Forms.Label lblPageNumber;
         private System.Windows.Forms.Button change;
+        private System.Windows.Forms.ToolStripMenuItem udcToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem workplaceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scienceDegreeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem genreToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn udcDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countPagesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UdcId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PublisherId;
         private System.Windows.Forms.DataGridViewTextBoxColumn creationDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn publisherDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn citationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doiDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn authorsDataGridViewTextBoxColumn;
     }
 }

@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace lab3
 {
-    public class Publication
+    public class Work
     {
         public string Id { get; set; }
         public string Title { get; set; }
-        public string Doi { get; set; }
-        public string Udc { get; set; }
         public int CountPages { get; set; }
+        public string UdcId { get; set; }
         public DateTime CreationDate { get; set; }
-        public Publisher Publisher { get; set; }
-        public int Citation { get; set; }
-        public List<Author> Authors { get; set; }
+        public string PublisherId { get; set; }
+        public string Doi { get; set; }
+        public List<string> AuthorsIds { get; set; }
     }
 }

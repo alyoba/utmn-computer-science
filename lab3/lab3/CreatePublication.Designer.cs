@@ -41,15 +41,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.publisher = new System.Windows.Forms.ComboBox();
             this.count = new System.Windows.Forms.NumericUpDown();
-            this.citation = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.create = new System.Windows.Forms.Button();
-            this.udc = new System.Windows.Forms.MaskedTextBox();
             this.authorslist = new System.Windows.Forms.ListBox();
             this.publisherBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.udc = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.count)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.citation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.publisherBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,7 +93,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(577, 26);
+            this.label4.Location = new System.Drawing.Point(395, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 6;
@@ -139,7 +136,7 @@
             // 
             // publisher
             // 
-            this.publisher.DisplayMember = "Name";
+            this.publisher.DisplayMember = "Place";
             this.publisher.FormattingEnabled = true;
             this.publisher.Location = new System.Drawing.Point(209, 102);
             this.publisher.Name = "publisher";
@@ -159,31 +156,10 @@
             this.count.Size = new System.Drawing.Size(148, 20);
             this.count.TabIndex = 13;
             // 
-            // citation
-            // 
-            this.citation.Location = new System.Drawing.Point(398, 103);
-            this.citation.Maximum = new decimal(new int[] {
-            3000000,
-            0,
-            0,
-            0});
-            this.citation.Name = "citation";
-            this.citation.Size = new System.Drawing.Size(148, 20);
-            this.citation.TabIndex = 15;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(395, 87);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 13);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Цитируемость";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(577, 87);
+            this.label9.Location = new System.Drawing.Point(578, 26);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(144, 13);
             this.label9.TabIndex = 16;
@@ -199,22 +175,14 @@
             this.create.UseVisualStyleBackColor = true;
             this.create.Click += new System.EventHandler(this.create_Click);
             // 
-            // udc
-            // 
-            this.udc.Location = new System.Drawing.Point(580, 43);
-            this.udc.Mask = "000.00";
-            this.udc.Name = "udc";
-            this.udc.Size = new System.Drawing.Size(148, 20);
-            this.udc.TabIndex = 19;
-            // 
             // authorslist
             // 
             this.authorslist.DisplayMember = "FullName";
             this.authorslist.FormattingEnabled = true;
-            this.authorslist.Location = new System.Drawing.Point(580, 103);
+            this.authorslist.Location = new System.Drawing.Point(581, 42);
             this.authorslist.Name = "authorslist";
             this.authorslist.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.authorslist.Size = new System.Drawing.Size(148, 56);
+            this.authorslist.Size = new System.Drawing.Size(148, 82);
             this.authorslist.TabIndex = 20;
             this.authorslist.ValueMember = "Id";
             // 
@@ -222,17 +190,25 @@
             // 
             this.publisherBindingSource.DataSource = typeof(lab3.Publisher);
             // 
+            // udc
+            // 
+            this.udc.DisplayMember = "Name";
+            this.udc.FormattingEnabled = true;
+            this.udc.Location = new System.Drawing.Point(398, 103);
+            this.udc.Name = "udc";
+            this.udc.Size = new System.Drawing.Size(148, 21);
+            this.udc.TabIndex = 21;
+            this.udc.ValueMember = "Id";
+            // 
             // CreatePublication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(775, 197);
-            this.Controls.Add(this.authorslist);
             this.Controls.Add(this.udc);
+            this.Controls.Add(this.authorslist);
             this.Controls.Add(this.create);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.citation);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.count);
             this.Controls.Add(this.publisher);
             this.Controls.Add(this.label7);
@@ -251,7 +227,6 @@
             this.Text = "Публикация";
             this.Load += new System.EventHandler(this.CreatePublication_Load);
             ((System.ComponentModel.ISupportInitialize)(this.count)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.citation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.publisherBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -272,12 +247,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox publisher;
         private System.Windows.Forms.NumericUpDown count;
-        private System.Windows.Forms.NumericUpDown citation;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button create;
-        private System.Windows.Forms.MaskedTextBox udc;
         private System.Windows.Forms.BindingSource publisherBindingSource;
         private System.Windows.Forms.ListBox authorslist;
+        private System.Windows.Forms.ComboBox udc;
     }
 }

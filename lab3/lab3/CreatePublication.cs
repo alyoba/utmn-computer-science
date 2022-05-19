@@ -13,13 +13,15 @@ namespace lab3
     public partial class CreatePublication : Form
     {
         List<Author> Authors;
+        List<UDK> Udcs;
         List<Publisher> Publishers;
         string _Id;
-        Publication _data;
-        public CreatePublication(List<Author> authors, List<Publisher> publishers, Publication data = null)
+        Work _data;
+        public CreatePublication(ref List<Author> authors, ref List<Publisher> publishers, ref List<UDK> udcs, Work data = null)
         {
             _data = data;
             Authors = authors;
+            Udcs = udcs;
             Publishers = publishers;
             InitializeComponent();
 
@@ -28,6 +30,7 @@ namespace lab3
         private void CreatePublication_Load(object sender, EventArgs e)
         {
             publisher.DataSource = Publishers;
+            udc.DataSource = Udcs;
             authorslist.DataSource = Authors;
 
             _Id = Guid.NewGuid().ToString("N");
@@ -37,25 +40,31 @@ namespace lab3
                 _Id = _data.Id;
                 title.Text = _data.Title;
                 doi.Text = _data.Doi;
-                udc.Text = _data.Udc;
                 count.Value = _data.CountPages;
                 date.Value = _data.CreationDate;
-                citation.Value = _data.Citation;
                 authorslist.SelectedItems.Clear();
 
                 for (int i = 0; i < publisher.Items.Count; i++)
                 {
-                    if ((publisher.Items[i] as Publisher).Id == _data.Publisher.Id)
+                    if ((publisher.Items[i] as Publisher).Id == _data.PublisherId)
                     {
                         publisher.SelectedItem = publisher.Items[i];
                     }
                 }
 
+                for (int i = 0; i < udc.Items.Count; i++)
+                {
+                    if ((udc.Items[i] as UDK).Id == _data.UdcId)
+                    {
+                        udc.SelectedItem = udc.Items[i];
+                    }
+                }
+
                 for (int i = 0; i < authorslist.Items.Count; i++)
                 {
-                    foreach (Author author in _data.Authors)
+                    foreach (string authorId in _data.AuthorsIds)
                     {
-                        if ((authorslist.Items[i] as Author).Id == author.Id)
+                        if ((authorslist.Items[i] as Author).Id == authorId)
                         {
                             authorslist.SelectedItems.Add(authorslist.Items[i]);
                         }
@@ -66,23 +75,22 @@ namespace lab3
 
         private void create_Click(object sender, EventArgs e)
         {
-            List<Author> authors = new List<Author>();
+            List<string> authors = new List<string>();
             foreach (Author author in authorslist.SelectedItems)
             {
-                authors.Add(author);
+                authors.Add(author.Id);
             }
             var mainForm = Application.OpenForms.OfType<Main>().Single();
-            mainForm.AddNewPublication(new Publication()
+            mainForm.AddNew(new Work()
             {
                 Id = _Id,
                 Title = title.Text,
                 Doi = doi.Text,
-                Udc = udc.Text,
+                UdcId = Udcs.Single(p => p.Id == (udc.SelectedItem as UDK).Id).Id,
                 CountPages = Convert.ToInt32(count.Value),
                 CreationDate = date.Value.Date,
-                Publisher = Publishers.Single(p => p.Id == (publisher.SelectedItem as Publisher).Id),
-                Citation = Convert.ToInt32(citation.Value),
-                Authors = authors
+                PublisherId = Publishers.Single(p => p.Id == (publisher.SelectedItem as Publisher).Id).Id,
+                AuthorsIds = authors
             });
 
             if (_data != null)
